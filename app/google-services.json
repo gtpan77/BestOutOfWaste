@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "584258412931",
+    "firebase_url": "https://bestoutofwaste-4d761.firebaseio.com",
+    "project_id": "bestoutofwaste-4d761",
+    "storage_bucket": "bestoutofwaste-4d761.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584258412931:android:54710414fa767386",
+        "android_client_info": {
+          "package_name": "com.example.gauravsharma.bestoutofwaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584258412931-jg1202mrd1f0oda15echvueld13bhggc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gauravsharma.bestoutofwaste",
+            "certificate_hash": "281306914390461547554bfde14190654d62f861"
+          }
+        },
+        {
+          "client_id": "584258412931-hop5n3gg0kshglemtanelmrh8q647ug8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7eDaS5bLHYA9Zbb4pGfALkR0ywLF3L5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584258412931-hop5n3gg0kshglemtanelmrh8q647ug8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
