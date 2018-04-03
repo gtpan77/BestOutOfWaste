@@ -3,4 +3,6 @@
 
     <string name="facebook_app_id">1349520901818990</string>
     <string name="fb_login_protocol_scheme">fb1349520901818990</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">YLipNMoxPJ32hQOgtINnSKfz4</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">RX7iDBu9cFoUS2niDgaMHv3kiZPQ1u51iN6035DzD91fDwvhla</string>
 </resources>
