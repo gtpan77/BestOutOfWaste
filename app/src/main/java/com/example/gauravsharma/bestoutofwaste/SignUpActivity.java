@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
     private final String TAG = "tag";
     //Firebase
     private FirebaseAuth mAuth;
-    private  FirebaseAuth.AuthStateListener listener;
+    private FirebaseAuth.AuthStateListener listener;
     // google SignUp
     private SignInButton googleSignupSignupButton;
     private GoogleSignInClient mGoogleSignInClient;
@@ -66,40 +66,39 @@ public class SignUpActivity extends AppCompatActivity {
     private CallbackManager mCallbackManager;
     // twitter SignUp
     private TwitterLoginButton mLoginButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Twitter.initialize(this);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
-        listener=new FirebaseAuth.AuthStateListener() {
+        listener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(mAuth.getCurrentUser()!=null){
-                    final String uID=mAuth.getUid();
+                if (mAuth.getCurrentUser() != null) {
+                    final String uID = mAuth.getUid();
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    final DatabaseReference myRef=database.getReference("User");
-                    Query userExist=myRef.orderByChild("userID").equalTo(uID);
+                    final DatabaseReference myRef = database.getReference("User");
+                    Query userExist = myRef.orderByChild("userID").equalTo(uID);
                     userExist.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.getChildrenCount()==0){
-                                User user=new User();
-                                user.userID=uID;
+                            if (dataSnapshot.getChildrenCount() == 0) {
+                                User user = new User();
+                                user.userID = uID;
+                                user.registered = false;
                                 myRef.child(uID).setValue(user);
-                                startActivity(new Intent(SignUpActivity.this,RegistrationActivity.class));
+                                startActivity(new Intent(SignUpActivity.this, RegistrationActivity.class));
                                 // finish();
-                            }
-                            else{
-                                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
-                                    //   user = singleSnapshot.getValue(User.class)
+                            } else {
+                                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
                                     User user = singleSnapshot.getValue(User.class);
-                                    if(user.registered==false){
-                                        startActivity(new Intent(SignUpActivity.this,RegistrationActivity.class));
+                                    if (!user.registered) {
+                                        startActivity(new Intent(SignUpActivity.this, RegistrationActivity.class));
                                         //  finish();
-                                    }
-                                    else{
-                                        // in case of signing with google or fb or twitter
+                                    } else {
+                                        startActivity(new Intent(SignUpActivity.this, IntroActivity.class));
                                     }
                                 }
                             }
@@ -110,7 +109,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                         }
                     });
-
                 }
             }
         };
@@ -151,6 +149,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
+
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
@@ -183,8 +182,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void onStart() {
         super.onStart();
-        if(mAuth.getCurrentUser()!=null)
-            mAuth.signOut();
         mAuth.addAuthStateListener(listener);
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -337,4 +334,3 @@ public class SignUpActivity extends AppCompatActivity {
     }
     // twitter SignUp ends
 }
-

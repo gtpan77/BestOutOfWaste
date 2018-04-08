@@ -14,10 +14,21 @@ public class User {
     public boolean flag;
     public boolean registered;
     public int lastCount;
-    public  Date lastSeen;
+    public Date lastSeen;
     public Date updateAccount;
     public Date createAccount;
-    public User(){
 
+    public User() {
+
+    }
+
+    public User(String uid, String firstName, String lastName, String emailAddress, String phoneNumber, Address address, boolean registered) {
+        userID = uid;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.registered = registered;
     }
 }

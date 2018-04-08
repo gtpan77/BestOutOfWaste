@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private Button signUpButton;
     // fireBase
     private FirebaseAuth mAuth;
-    private  FirebaseAuth.AuthStateListener listener;
+    private FirebaseAuth.AuthStateListener listener;
     // temporaryVariables
     private final String TAG = "tag";
     //google SignIn
@@ -69,35 +69,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        listener=new FirebaseAuth.AuthStateListener() {
+        listener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(mAuth.getCurrentUser()!=null){
-                    final String uID=mAuth.getUid();
-                    Log.d("USERID",uID);
+                if (mAuth.getCurrentUser() != null) {
+                    final String uID = mAuth.getUid();
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    final DatabaseReference myRef=database.getReference("User");
-                    Query userExist=myRef.orderByChild("userID").equalTo(uID);
+                    final DatabaseReference myRef = database.getReference("User");
+                    Query userExist = myRef.orderByChild("userID").equalTo(uID);
                     userExist.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.getChildrenCount()==0){
-                                User user=new User();
-                                user.userID=uID;
+                            if (dataSnapshot.getChildrenCount() == 0) {
+                                User user = new User();
+                                user.userID = uID;
+                                user.registered = false;
                                 myRef.child(uID).setValue(user);
-                                startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
+                                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                 // finish();
-                            }
-                            else{
-                                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
-                                    //   user = singleSnapshot.getValue(User.class)
+                            } else {
+                                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
                                     User user = singleSnapshot.getValue(User.class);
-                                    if(user.registered==false){
-                                        startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
+                                    if (!user.registered) {
+                                        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                         //  finish();
-                                    }
-                                    else{
-                                        // in case of signing with google or fb or twitter
+                                    } else {
+                                        startActivity(new Intent(MainActivity.this, IntroActivity.class));
                                     }
                                 }
                             }
@@ -198,9 +195,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        if(mAuth.getCurrentUser()!=null){
-            mAuth.signOut();
-        }
         mAuth.addAuthStateListener(listener);
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
