@@ -75,6 +75,6 @@ public class RegistrationActivity extends AppCompatActivity {
         mDatabase.child("Address").child(currentUser.getUid()).setValue(address);
         User user = new User(currentUser.getUid(), firstName, lastName, email, phone, address, true);
         mDatabase.child("User").child(currentUser.getUid()).setValue(user);
-        startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
+      //  startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
     }
 }

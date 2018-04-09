@@ -11,7 +11,7 @@ public class Address {
     String pinCode;
     String country;
 
-    public Address() {
+    Address() {
 
     }
 
