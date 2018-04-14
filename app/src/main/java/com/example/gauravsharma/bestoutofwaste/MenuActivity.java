@@ -1,9 +1,6 @@
 package com.example.gauravsharma.bestoutofwaste;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,23 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.gauravsharma.bestoutofwaste.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-//public FirebaseAuth mAuth;
     protected void onCreateDraw() {
-    //    super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_menu);
-  //   mAuth=FirebaseAuth.getInstance();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -66,6 +52,7 @@ public class MenuActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//            startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
             return true;
         }
 
@@ -79,12 +66,18 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.navigationDonation) {
-            // Handle the camera action
+
         } else if (id == R.id.navigationLocations) {
 
         } else if (id == R.id.navigationSettings) {
 
+//            startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
+
         } else if (id == R.id.navigationLogOut) {
+
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+            startActivity(new Intent(MenuActivity.this, MainActivity.class));
 
         } else if (id == R.id.nav_share) {
 

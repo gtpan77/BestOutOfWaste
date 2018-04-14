@@ -65,7 +65,7 @@ public class RegistrationActivity extends AppCompatActivity {
             emailEditText.setText(currentUser.getEmail());
             emailEditText.setEnabled(false);
         }
-        if (currentUser.getPhoneNumber() != null) {
+        if (currentUser.getPhoneNumber() != null && !currentUser.getPhoneNumber().isEmpty()) {
             phoneEditText.setText(currentUser.getPhoneNumber());
             phoneEditText.setEnabled(false);
         }
@@ -75,6 +75,6 @@ public class RegistrationActivity extends AppCompatActivity {
         mDatabase.child("Address").child(currentUser.getUid()).setValue(address);
         User user = new User(currentUser.getUid(), firstName, lastName, email, phone, address, true);
         mDatabase.child("User").child(currentUser.getUid()).setValue(user);
-      //  startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
+        startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
     }
 }

@@ -21,13 +21,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="SUPPORT US"
+                android:text="SELECT ITEMS"
                 android:gravity="center"/>
 
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_intro" />
+    <include layout="@layout/content_select" />
 
 </android.support.design.widget.CoordinatorLayout>

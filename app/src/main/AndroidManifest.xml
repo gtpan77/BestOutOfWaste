@@ -45,7 +45,15 @@
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".IntroActivity" />
+        <activity
+            android:name=".SelectActivity"
+            android:label="@string/title_activity_select"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".VerifySelectedActivity"
+            android:label="@string/title_activity_verify_selected"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
