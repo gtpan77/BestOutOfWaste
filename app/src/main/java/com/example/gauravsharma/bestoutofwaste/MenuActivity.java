@@ -1,6 +1,11 @@
 package com.example.gauravsharma.bestoutofwaste;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -52,7 +57,7 @@ public class MenuActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-//            startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
+            startActivity(new Intent(MenuActivity.this, Settings.class));
             return true;
         }
 
@@ -71,7 +76,7 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.navigationSettings) {
 
-//            startActivity(new Intent(MenuActivity.this, SettingsActivity.class));
+            startActivity(new Intent(MenuActivity.this,Settings.class));
 
         } else if (id == R.id.navigationLogOut) {
 

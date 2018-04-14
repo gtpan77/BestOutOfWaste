@@ -1,15 +1,15 @@
 package com.example.gauravsharma.bestoutofwaste.Model;
 public class Address {
-    String userID;
-    String longitude;
-    String latitude;
-    String streetAddress1;
-    String streetAddress2;
-    String landMark;
-    String city;
-    String state;
-    String pinCode;
-    String country;
+   public String userID;
+   public String longitude;
+    public String latitude;
+    public String streetAddress1;
+    public String streetAddress2;
+    public String landMark;
+    public String city;
+    public String state;
+    public String pinCode;
+    public String country;
 
     public Address() {
 
@@ -24,4 +24,5 @@ public class Address {
         this.state = state;
         this.country = country;
     }
+
 }
