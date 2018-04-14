@@ -1,5 +1,6 @@
 package com.example.gauravsharma.bestoutofwaste;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -63,12 +64,10 @@ public class MenuActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -83,6 +82,7 @@ public class MenuActivity extends AppCompatActivity
         } else if (id == R.id.navigationLocations) {
 
         } else if (id == R.id.navigationSettings) {
+startActivity(new Intent(MenuActivity.this,Settings.class));
 
         } else if (id == R.id.navigationLogOut) {
 

@@ -9,7 +9,7 @@ public class User {
     public String gender;
     public Date dateOfBirth;
     public String phoneNumber;
-    public Address address;
+    public String address;
     public Address pickUpAddress;
     public boolean flag;
     public boolean registered;
@@ -22,7 +22,7 @@ public class User {
 
     }
 
-    public User(String uid, String firstName, String lastName, String emailAddress, String phoneNumber, Address address, boolean registered) {
+    public User(String uid, String firstName, String lastName, String emailAddress, String phoneNumber, String address, boolean registered) {
         userID = uid;
         this.firstName = firstName;
         this.lastName = lastName;

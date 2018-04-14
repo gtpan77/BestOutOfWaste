@@ -72,9 +72,10 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void registerUser(String firstName, String lastName, String email, String phone, Address address) {
-        mDatabase.child("Address").child(currentUser.getUid()).setValue(address);
-        User user = new User(currentUser.getUid(), firstName, lastName, email, phone, address, true);
+        String key=mDatabase.child("Address").push().getKey();
+        mDatabase.child("Address").child(key).setValue(address);
+        User user = new User(currentUser.getUid(), firstName, lastName, email, phone, key, true);
         mDatabase.child("User").child(currentUser.getUid()).setValue(user);
-      //  startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
+        startActivity(new Intent(RegistrationActivity.this, IntroActivity.class));
     }
 }
