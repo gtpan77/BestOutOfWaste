@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,51 +14,87 @@
     tools:context=".SelectActivity"
     tools:showIn="@layout/app_bar_select">
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text="NEXT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
+    <ImageButton
         android:id="@+id/itemNewsPaper"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="92dp"
-        android:background="@color/colorAccent"
-        android:onClick="addItem"
-        android:tag="0"
-        android:text="News Paper"
-        android:gravity="center"
+        android:layout_width="337dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/editshape"
+        android:src="@drawable/newspapericon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/itemElectronics"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="337dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/editshape"
+        android:src="@drawable/electronicsicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageButton
+        android:id="@+id/itemPlastic"
+        android:layout_width="337dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/editshape"
+        android:src="@drawable/plasticicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemElectronics" />
+
+    <ImageButton
+        android:id="@+id/itemIronBar"
+        android:layout_width="337dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/editshape"
+        android:src="@drawable/metalicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemPlastic" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:background="@color/colorAccent"
-        android:onClick="addItem"
-        android:tag="1"
-        android:text="Electronics"
-        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/editshape"
+        android:text="NEXT"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/itemNewsPaper"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemIronBar" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="337dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/editshape"
+        android:gravity="center_horizontal"
+        android:text="NEWSPAPER"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemNewsPaper" />
+
+
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

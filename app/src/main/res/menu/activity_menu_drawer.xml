@@ -6,33 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navigationDonation"
-
+android:icon="@drawable/ic_noun_299764_cc"
             android:title="Donation" />
         <item
             android:id="@+id/navigationLocations"
-
+            android:icon="@drawable/ic_my_location_black_24dp"
             android:title="Locations" />
         <item
             android:id="@+id/navigationSettings"
-
+android:icon="@drawable/ic_settings_black_24dp"
             android:title="Settings" />
         <item
             android:id="@+id/navigationLogOut"
-
+android:icon="@drawable/ic_noun_65577_cc"
             android:title="Logout" />
     </group>
 
     <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
 
-                android:title="Send" />
-        </menu>
     </item>
 
 </menu>

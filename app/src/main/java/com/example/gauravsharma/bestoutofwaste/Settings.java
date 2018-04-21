@@ -13,12 +13,12 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-    accountSettingsText=findViewById(R.id.accountSettingsSettingsText);
-    accountSettingsText.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(Settings.this,AccountSettings.class));
-        }
-    });
+        accountSettingsText=findViewById(R.id.accountSettingsSettingsText);
+        accountSettingsText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Settings.this,AccountSettings.class));
+            }
+        });
     }
 }

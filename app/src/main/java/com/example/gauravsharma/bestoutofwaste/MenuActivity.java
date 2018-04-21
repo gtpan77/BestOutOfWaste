@@ -84,10 +84,6 @@ public class MenuActivity extends AppCompatActivity
             mAuth.signOut();
             startActivity(new Intent(MenuActivity.this, MainActivity.class));
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

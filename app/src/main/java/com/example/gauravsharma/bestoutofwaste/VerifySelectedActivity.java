@@ -18,7 +18,6 @@ public class VerifySelectedActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_selected);
         super.onCreateDraw();
-
         Intent intent = getIntent();
 
         ArrayList<String> items = new ArrayList<>(intent.getStringArrayListExtra("items"));
