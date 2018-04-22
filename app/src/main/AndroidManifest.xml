@@ -47,7 +47,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".IntroActivity" />
         <activity android:name=".AccountSettings" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
         <activity
             android:name=".SelectActivity"
             android:label="@string/title_activity_select"
@@ -55,7 +55,9 @@
         <activity
             android:name=".VerifySelectedActivity"
             android:label="@string/title_activity_verify_selected"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ThanksActivity" />
+        <activity android:name=".ShowDonationActivity"></activity>
     </application>
 
 </manifest>

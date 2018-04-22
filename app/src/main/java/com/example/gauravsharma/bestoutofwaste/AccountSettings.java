@@ -19,49 +19,51 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AccountSettings extends AppCompatActivity {
-   //Firebase
+    //Firebase
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference mDatabase;
     DatabaseReference myRef;
     //Inputs
     private Button save;
-    private EditText fName,lName,email,phoneNumber,DOB,streetAddress1,streetAddress2,landMark,city,pinCode,country,state;
+    private EditText fName, lName, email, phoneNumber, DOB, streetAddress1, streetAddress2, landMark, city, pinCode, country, state;
     //Firebase-data
     private String addressKey;
     User user;
     Address address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_settings);
-        myRef=FirebaseDatabase.getInstance().getReference();
+        myRef = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         currentUser = mAuth.getCurrentUser();
 
-        fName=findViewById(R.id.firstNameAccountSettingsInput);
-        lName=findViewById(R.id.lastNameAccountSettingsInput);
-        phoneNumber=findViewById(R.id.phoneAccountSettingsInput);
-        DOB=findViewById(R.id.DOBAccountSettingsInput);
-        email=findViewById(R.id.emailAccountSettingsInput);
-        streetAddress1=findViewById(R.id.streetAddress1AccountSettingsInput);
-        streetAddress2=findViewById(R.id.streetAddress2AccountSettingsInput);
-        landMark=findViewById(R.id.landmarkAccountSettingsInput);
-        city=findViewById(R.id.cityAccountSettingsInput);
-        pinCode=findViewById(R.id.pinCodeAccountSettingsInput);
-        country=findViewById(R.id.countryAccountSettingsInput);
-        state=findViewById(R.id.stateAccountSettingsInput);
+        fName = findViewById(R.id.firstNameAccountSettingsInput);
+        lName = findViewById(R.id.lastNameAccountSettingsInput);
+        phoneNumber = findViewById(R.id.phoneAccountSettingsInput);
+        DOB = findViewById(R.id.DOBAccountSettingsInput);
+        email = findViewById(R.id.emailAccountSettingsInput);
+        streetAddress1 = findViewById(R.id.streetAddress1AccountSettingsInput);
+        streetAddress2 = findViewById(R.id.streetAddress2AccountSettingsInput);
+        landMark = findViewById(R.id.landmarkAccountSettingsInput);
+        city = findViewById(R.id.cityAccountSettingsInput);
+        pinCode = findViewById(R.id.pinCodeAccountSettingsInput);
+        country = findViewById(R.id.countryAccountSettingsInput);
+        state = findViewById(R.id.stateAccountSettingsInput);
         getUser();
     }
+
     public void getUser() {
 
         myRef.child("User").child(mAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 user = dataSnapshot.getValue(User.class);
-    getAddress();
-    return;
+                getAddress();
+                return;
             }
 
             @Override
@@ -70,12 +72,13 @@ public class AccountSettings extends AppCompatActivity {
             }
         });
     }
+
     public void getAddress() {
         myRef.child("Address").child(user.address).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 address = dataSnapshot.getValue(Address.class);
-           autoFill();
+                autoFill();
             }
 
             @Override
@@ -85,35 +88,36 @@ public class AccountSettings extends AppCompatActivity {
         });
 
     }
-    public void autoFill(){
-        if(user.firstName!=null){
+
+    public void autoFill() {
+        if (user.firstName != null) {
             fName.setText(user.firstName);
         }
-        if(user.lastName!=null){
+        if (user.lastName != null) {
             lName.setText(user.lastName);
         }
-        if(user.emailAddress!=null){
+        if (user.emailAddress != null) {
             email.setText(user.emailAddress);
         }
-        if(user.phoneNumber!=null){
+        if (user.phoneNumber != null) {
             phoneNumber.setText(user.phoneNumber);
         }
-        if(address.streetAddress1!=null){
+        if (address.streetAddress1 != null) {
             streetAddress1.setText(address.streetAddress1);
         }
-        if(address.streetAddress2!=null){
+        if (address.streetAddress2 != null) {
             streetAddress2.setText(address.streetAddress2);
         }
-        if(address.state!=null)
+        if (address.state != null)
             state.setText(address.state);
-        if(address.city!=null)
+        if (address.city != null)
             city.setText(address.city);
-        if (address.country!=null)
+        if (address.country != null)
             country.setText(address.country);
-        if (address.pinCode!=null)
+        if (address.pinCode != null)
             pinCode.setText(address.pinCode);
 
-        save=findViewById(R.id.saveAccountSeetingsButton);
+        save = findViewById(R.id.saveAccountSeetingsButton);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,48 +126,50 @@ public class AccountSettings extends AppCompatActivity {
         });
 
     }
-    public void update(){
-        DatabaseReference myRef=FirebaseDatabase.getInstance().getReference();
-        if(fName.getText().toString().length()!=0) {
-        String f=fName.getText().toString();
+
+    public void update() {
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+        if (fName.getText().toString().length() != 0) {
+            String f = fName.getText().toString();
             mDatabase.child("User").child(currentUser.getUid()).child("firstName").setValue(f);
         }
-        if(lName.getText().toString().length()!=0) {
-            String l=fName.getText().toString();
+        if (lName.getText().toString().length() != 0) {
+            String l = fName.getText().toString();
             mDatabase.child("User").child(currentUser.getUid()).child("lasttName").setValue(l);
         }
-        if(phoneNumber.getText().toString().length()!=0)
+        if (phoneNumber.getText().toString().length() != 0)
             mDatabase.child("User").child(currentUser.getUid()).child("phoneNumber").setValue(phoneNumber.getText().toString());
-        if (email.getText().toString().length()!=0) {
+        if (email.getText().toString().length() != 0) {
             mDatabase.child("User").child(currentUser.getUid()).child("emailAddress").setValue(email.getText().toString());
         }
-        addressKey=user.address;
+        addressKey = user.address;
         updateAddress();
     }
-    public void updateAddress(){
 
-        String streetAddress=streetAddress1.getText().toString();
-        if(streetAddress.length()!=0){
-         myRef.child("Address").child(addressKey).child("streetAddress1").setValue(streetAddress);
+    public void updateAddress() {
+
+        String streetAddress = streetAddress1.getText().toString();
+        if (streetAddress.length() != 0) {
+            myRef.child("Address").child(addressKey).child("streetAddress1").setValue(streetAddress);
         }
-        if(streetAddress2.getText().toString().length()!=0){
+        if (streetAddress2.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("streetAddress2").setValue(streetAddress2.getText().toString());
         }
-        if(country.getText().toString().length()!=0){
+        if (country.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("country").setValue(country.getText().toString());
         }
-        if(city.getText().toString().length()!=0) {
+        if (city.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("city").setValue(city.getText().toString());
         }
-        if(landMark.getText().toString().length()!=0){
+        if (landMark.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("landMark").setValue(landMark.getText().toString());
         }
-        if(pinCode.getText().toString().length()!=0){
+        if (pinCode.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("pinCode").setValue(pinCode.getText().toString());
         }
-        if(state.getText().toString().length()!=0){
+        if (state.getText().toString().length() != 0) {
             myRef.child("Address").child(addressKey).child("state").setValue(state.getText().toString());
         }
         finish();
-        }
     }
+}

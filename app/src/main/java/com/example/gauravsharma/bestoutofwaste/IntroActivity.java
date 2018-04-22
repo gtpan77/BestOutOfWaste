@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class IntroActivity extends MenuActivity{
+public class IntroActivity extends MenuActivity {
 
     private Button donateButton;
 
@@ -19,7 +19,7 @@ public class IntroActivity extends MenuActivity{
         donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(IntroActivity.this,SelectActivity.class));
+                startActivity(new Intent(IntroActivity.this, SelectActivity.class));
             }
         });
     }

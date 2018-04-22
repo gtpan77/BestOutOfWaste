@@ -9,15 +9,16 @@ import android.widget.TextView;
 public class Settings extends AppCompatActivity {
 
     TextView accountSettingsText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        accountSettingsText=findViewById(R.id.accountSettingsSettingsText);
+        accountSettingsText = findViewById(R.id.accountSettingsSettingsText);
         accountSettingsText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings.this,AccountSettings.class));
+                startActivity(new Intent(Settings.this, AccountSettings.class));
             }
         });
     }

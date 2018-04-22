@@ -72,6 +72,8 @@ public class MenuActivity extends AppCompatActivity
 
         if (id == R.id.navigationDonation) {
 
+            startActivity(new Intent(MenuActivity.this,ShowDonationActivity.class));
+
         } else if (id == R.id.navigationLocations) {
 
         } else if (id == R.id.navigationSettings) {
